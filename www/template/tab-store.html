@@ -1,0 +1,21 @@
+<ion-view view-title="Store">
+  <ion-content class="padding">
+    <h2 align="right"><a href="#/tab/cart" style="text-decoration: none">${{totalPrice()}}</a></h2>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap">
+        <img ng-src="{{item.img}}" style="width: 80px"/>
+        <p><h2>{{item.name}}</h2>
+        <p>{{item.description}}</p>
+        <p align="right">
+          <b>${{item.price}}</b>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <b>{{item.stock}}</b> unit/s
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="btn btn-success" ng-show="item.stock>0" ng-click="add(item)">
+            Add
+          </a>
+        </p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

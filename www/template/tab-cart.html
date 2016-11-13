@@ -1,0 +1,19 @@
+<ion-view view-title="Cart">
+  <ion-content class="padding">
+    <ion-list>
+      <h7 ng-show="carts.length == 0">add items to the cart...</h7>
+      <h7 ng-show="carts.length > 0">swipe to the left to remove...</h7>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in carts" type="item-text-wrap">
+        <img ng-src="{{item.img}}" style="width: 160px;"/>
+        <p><h2>{{item.name}}</h2>
+        <p>{{item.description}}</p>
+        <p>${{item.price}} x {{item.units}} unit/s = <b>${{item.price * item.units}}</b></p>
+          <ion-option-button class="button-assertive" ng-click="remove(item)">
+            Remove
+          </ion-option-button>
+      </ion-item>
+    </ion-list>
+    <br>
+    <button class="button button-balanced" ng-show="carts.length > 0" ng-click="message()">Checkout</button>
+    </ion-content>
+</ion-view>
